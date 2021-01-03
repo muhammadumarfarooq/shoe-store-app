@@ -7,7 +7,7 @@ import shoe6Img from '../assets/shoe-6.jpg';
 import shoe7Img from '../assets/shoe-7.jpg';
 import shoe8Img from '../assets/shoe-8.jpg';
 
-export const shoes: Todo[] = [
+export const products: Product[] = [
   {
     price: 50,
     name: "Nike Air Vapormax 2020 Flyknit",

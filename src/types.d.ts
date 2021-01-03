@@ -1,4 +1,4 @@
-interface Todo {
+interface Product {
   price: number
   name: string
   detail: string
