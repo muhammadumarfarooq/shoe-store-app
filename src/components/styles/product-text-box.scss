@@ -16,8 +16,13 @@
     .date-time-box {
       display: flex;
       align-items: center;
+
       @include respond(phone) {
         margin-top: 0.7rem;
+      }
+
+      .product--rating {
+        margin-left: 3rem;
       }
 
       &--text {

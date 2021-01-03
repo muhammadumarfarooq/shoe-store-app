@@ -1,5 +1,7 @@
 import React from 'react';
+import Rating from '@material-ui/lab/Rating';
 import './styles/product-text-box.scss';
+
 interface Props {
   slug: string
   name: string
@@ -15,17 +17,19 @@ const BlogSingleTextBox: React.FC<Props> = (props) => {
       <div className="text-wrapper">
         <p className="product--title" color="indigo-color">{name}</p>
         <div className="date-time-box">
-          <p className="date-time-box--text">{review}</p>
-          <div className="date-time-box--dot"/>
-          <p className="date-time-box--text">{price}</p>
+          <div className="product--rating">
+            <Rating name="half-rating-read" defaultValue={review} precision={0.5} readOnly/>
+          </div>
+          <p className="date-time-box--text">${price}</p>
         </div>
         <p className="product--detail w-300" color="indigo-color">{detail}</p>
       </div>
-      <a href={`/product/${slug}`} className="product-btn">
-        Read More
-      </a>
+      {/*<a href={`/product/${slug}`} className="product-btn">*/}
+      {/*  Read More*/}
+      {/*</a>*/}
     </div>
-  );
+  )
+    ;
 };
 
 BlogSingleTextBox.propTypes = {};
