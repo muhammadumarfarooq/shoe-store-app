@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductTextBox from "./ProductTextBox";
+import './styles/product.scss';
 
 interface Props {
   product: Product
@@ -27,7 +28,7 @@ const BlogSingle: React.FC<Props> = ({ product }) => {
           <ProductTextBox
             slug="slug"
             name={name}
-            detail={detail}
+            detail={`${detail.slice(0, 120)}...`}
             review={review}
             price={price}
           />
