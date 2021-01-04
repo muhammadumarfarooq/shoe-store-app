@@ -12,11 +12,13 @@ const BlogSingle: React.FC<Props> = ({ product }) => {
     name,
     detail,
     review,
-    image
+    image,
+    slug
   } = product;
   
   return (
     <div className="col-xl-6 col-lg-6 col-md-6 product--container">
+      
       <div className="product--wrapper">
         <div className="product--img-wrapper">
           <div
@@ -26,7 +28,7 @@ const BlogSingle: React.FC<Props> = ({ product }) => {
         
         <div className="product-text-wrapper">
           <ProductTextBox
-            slug="slug"
+            slug={slug}
             name={name}
             detail={`${detail.slice(0, 120)}...`}
             review={review}

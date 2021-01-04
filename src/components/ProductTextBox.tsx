@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
 import './styles/product-text-box.scss';
 
@@ -15,7 +16,7 @@ const BlogSingleTextBox: React.FC<Props> = (props) => {
   return (
     <div className="product--text-box">
       <div className="text-wrapper">
-        <p className="product--title" color="indigo-color">{name}</p>
+        <Link to={`/product/${slug}`} className="product--title" color="indigo-color">{name}</Link>
         <div className="date-time-box">
           <div className="product--rating">
             <Rating name="half-rating-read" defaultValue={review} precision={0.5} readOnly/>

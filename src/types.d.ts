@@ -4,4 +4,5 @@ interface Product {
   detail: string
   review: number
   image: string
+  slug: string
 }
