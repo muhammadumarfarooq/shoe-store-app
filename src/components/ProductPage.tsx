@@ -46,6 +46,9 @@ const ProductPage: React.FC = () => {
               </div>
               <p className="product-page--detail">{product.detail}</p>
             </div>
+            
+            <button className="add-to-cart--btn">Add to cart</button>
+          
           </div>
         
         </div>

@@ -33,4 +33,20 @@
     margin-top: 3rem;
   }
 
+  .add-to-cart--btn {
+    display: inline-block;
+    margin-top: 4rem;
+    background: #111;
+    box-shadow: none;
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 600;
+    padding: 1.6rem 6rem;
+    border-radius: 2rem;
+
+    &:hover {
+      background: lighten(#111, 10%);
+    }
+  }
+
 }
