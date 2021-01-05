@@ -1,0 +1,31 @@
+.product-page {
+  margin: 7rem 0;
+
+  &--img {
+    width: 100%;
+    height: auto;
+  }
+
+  &--text-box {
+    margin-top: 5rem;
+  }
+
+  &--price-review {
+    display: flex;
+    align-items: center;
+    margin-top: 1.3rem;
+  }
+
+  &--price {
+    font-size: 1.8rem;
+    color: #000;
+    font-weight: 500;
+    margin-right: 2rem;
+  }
+
+  &--detail {
+    font-size: 1.6rem;
+    margin-top: 3rem;
+  }
+
+}
