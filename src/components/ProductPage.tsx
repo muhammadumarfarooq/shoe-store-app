@@ -8,7 +8,13 @@ interface paramsObj {
   slug: string
 }
 
-const ProductPage: React.FC = () => {
+type HandleAddToCart = (product: Product) => void;
+
+interface Props {
+  handleAddToCart: HandleAddToCart
+}
+
+const ProductPage: React.FC<Props> = ({ handleAddToCart }) => {
   const [product, setProduct] = useState<Product>({
     name: "",
     detail: "",
@@ -47,7 +53,7 @@ const ProductPage: React.FC = () => {
               <p className="product-page--detail">{product.detail}</p>
             </div>
             
-            <button className="add-to-cart--btn">Add to cart</button>
+            <button onClick={() => handleAddToCart(product)} className="add-to-cart--btn">Add to cart</button>
           
           </div>
         

@@ -16,6 +16,17 @@ function App() {
     total: 0,
     items: []
   });
+  
+  const handleAddToCart = (product: Product) => {
+    setCart((prevCart) => ( { ...prevCart, items: [...prevCart.items, product] } ));
+  }
+  
+  const handleRemoveFromCart = (id: String) => {
+    const updateditems = cart.items.filter(item => item.slug !== id);
+    setCart((prevCart) => ( { ...prevCart, items: updateditems } ));
+  }
+  
+  
   return (
     <Router>
       <div className="App">
@@ -25,7 +36,7 @@ function App() {
             <Products availableProducts={availableProducts}/>
           </Route>
           <Route exact path="/product/:slug">
-            <ProductPage/>
+            <ProductPage handleAddToCart={handleAddToCart}/>
           </Route>
         </Switch>
         <Footer/>
