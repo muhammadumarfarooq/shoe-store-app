@@ -11,7 +11,7 @@ import {
 import ProductPage from "./ProductPage";
 
 function App() {
-  const [availableProducts, setAvailableProducts] = useState<Product[]>(products);
+  const [availableProducts] = useState<Product[]>(products);
   const [cart, setCart] = useState<Cart>({
     total: 0,
     items: []
@@ -36,7 +36,11 @@ function App() {
             <Products availableProducts={availableProducts}/>
           </Route>
           <Route exact path="/product/:slug">
-            <ProductPage handleAddToCart={handleAddToCart}/>
+            <ProductPage
+              cart={cart}
+              handleAddToCart={handleAddToCart}
+              handleRemoveFromCart={handleRemoveFromCart}
+            />
           </Route>
         </Switch>
         <Footer/>

@@ -9,12 +9,16 @@ interface paramsObj {
 }
 
 type HandleAddToCart = (product: Product) => void;
+type HandleRemoveFromCart = (id: string) => void;
 
 interface Props {
   handleAddToCart: HandleAddToCart
+  handleRemoveFromCart: HandleRemoveFromCart
+  cart: Cart
 }
 
-const ProductPage: React.FC<Props> = ({ handleAddToCart }) => {
+const ProductPage: React.FC<Props> = ({ handleAddToCart, cart, handleRemoveFromCart }) => {
+  const [isItemInCart, setItemInCart] = useState(false);
   const [product, setProduct] = useState<Product>({
     name: "",
     detail: "",
@@ -32,7 +36,14 @@ const ProductPage: React.FC<Props> = ({ handleAddToCart }) => {
     
     //  eslint-disable-next-line
   }, [])
-  console.log(product.review);
+  
+  useEffect(() => {
+    const isIteminthecart: Product | undefined = cart.items.find((data) => data.slug === slug);
+    if ( isIteminthecart )
+      setItemInCart(true)
+    else setItemInCart(false)
+  }, [cart])
+  
   return (
     <div className="product-page">
       <div className="container">
@@ -53,7 +64,10 @@ const ProductPage: React.FC<Props> = ({ handleAddToCart }) => {
               <p className="product-page--detail">{product.detail}</p>
             </div>
             
-            <button onClick={() => handleAddToCart(product)} className="add-to-cart--btn">Add to cart</button>
+            <button onClick={() => isItemInCart ? handleRemoveFromCart(product.slug) : handleAddToCart(product)}
+                    className="add-to-cart--btn">
+              {isItemInCart ? "Remove item from cart" : "Add to cart"}
+            </button>
           
           </div>
         
