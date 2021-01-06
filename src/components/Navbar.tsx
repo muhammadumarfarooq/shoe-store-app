@@ -4,7 +4,11 @@ import logo from '../assets/nike-logo.png';
 import './styles/navbar.scss';
 import CartBtn from "./CartBtn";
 
-const Navbar: React.FC = () => {
+interface Props {
+  cart: Cart
+}
+
+const Navbar: React.FC<Props> = ({ cart }) => {
   return (
     <div className="navbar">
       <Link to="/">
@@ -17,7 +21,7 @@ const Navbar: React.FC = () => {
           <li>Woman</li>
           <li>Kids</li>
         </ul>
-        <CartBtn/>
+        <CartBtn count={cart.items.length}/>
       </div>
     </div>
   );

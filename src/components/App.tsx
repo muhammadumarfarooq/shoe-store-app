@@ -12,10 +12,14 @@ import ProductPage from "./ProductPage";
 
 function App() {
   const [availableProducts, setAvailableProducts] = useState<Product[]>(products);
+  const [cart, setCart] = useState<Cart>({
+    total: 0,
+    items: []
+  });
   return (
     <Router>
       <div className="App">
-        <Navbar/>
+        <Navbar cart={cart}/>
         <Switch>
           <Route exact path="/">
             <Products availableProducts={availableProducts}/>
